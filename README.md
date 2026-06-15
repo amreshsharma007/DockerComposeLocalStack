@@ -158,3 +158,20 @@ To enable data persistence across container restarts, set `PERSISTENCE=1` in you
 - **Port conflicts**: Ensure port 4566 is not in use by another service
 - **Docker socket**: The Docker socket is mounted to allow LocalStack to manage Lambda containers
 - **Logs**: Check logs with `docker-compose logs localstack` for detailed error messages
+
+## Bash scripts
+
+This repository includes several small shell helper scripts in the project root to make common filesystem tasks easier during development. Inspect each script before running them.
+
+- `cp.sh`: Lightweight wrapper for copying files. Usage: make executable and run `./cp.sh SOURCE DEST` or `bash cp.sh SOURCE DEST`.
+- `mv.sh`: Move or rename files. Usage: `./mv.sh SOURCE DEST` or `bash mv.sh SOURCE DEST`.
+- `rm.sh`: Remove files or directories. Use with caution. Usage: `./rm.sh TARGET` or `bash rm.sh TARGET`.
+- `mkdir.sh`: Create directories (parents included). Usage: `./mkdir.sh DIRPATH` or `bash mkdir.sh DIRPATH`.
+- `ll.sh`: Human-friendly long listing (wrapper around `ls -lh`); run as `./ll.sh [PATH]` or `bash ll.sh [PATH]`.
+
+Quick tips:
+
+- Make a script executable: `chmod +x ./cp.sh` (repeat for other scripts you want to run directly).
+- Run with explicit shell if you prefer not to change permissions: `bash ./cp.sh args...`.
+- Always review script contents before running, especially `rm.sh`.
+
