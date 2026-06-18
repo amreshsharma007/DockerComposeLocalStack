@@ -44,6 +44,7 @@ The Community Edition automatically detects and runs AWS services as you use the
 
 2. Edit `.env` to configure:
    - `DEBUG`: Enable debug logging (0 or 1)
+   - `PERSISTENCE`: Keep LocalStack state across restarts (1 by default in this repo)
 
 ### Pro Version
 
@@ -151,7 +152,9 @@ Common services available in the free Community Edition:
 
 ## Data Persistence
 
-To enable data persistence across container restarts, set `PERSISTENCE=1` in your `.env` file. Data will be stored in the volume directory.
+This compose file enables persistence by default with `PERSISTENCE=1`, and the state is stored in `./volume` via the bind mount in `docker-compose.yml`.
+
+If you want to disable persistence temporarily, set `PERSISTENCE=0` in your `.env` file.
 
 ## Troubleshooting
 
