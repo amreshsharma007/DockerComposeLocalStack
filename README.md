@@ -152,7 +152,7 @@ Common services available in the free Community Edition:
 
 ## Data Persistence
 
-This compose file enables persistence by default with `PERSISTENCE=1`, and the state is stored in `./volume` via the bind mount in `docker-compose.yml`.
+This compose file enables persistence by default with `PERSISTENCE=1`, stores the state in `./volume` via the bind mount in `docker-compose.yml`, and saves snapshots on each mutating request so S3 buckets survive a reboot even if LocalStack does not shut down cleanly.
 
 If you want to disable persistence temporarily, set `PERSISTENCE=0` in your `.env` file.
 

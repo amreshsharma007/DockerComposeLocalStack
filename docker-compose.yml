@@ -8,6 +8,8 @@ services:
     environment:
       - DEBUG=${DEBUG:-0}
       - PERSISTENCE=${PERSISTENCE:-1}
+      - SNAPSHOT_SAVE_STRATEGY=${SNAPSHOT_SAVE_STRATEGY:-ON_REQUEST}
+      - SNAPSHOT_LOAD_STRATEGY=${SNAPSHOT_LOAD_STRATEGY:-ON_STARTUP}
       - DOCKER_HOST=unix:///var/run/docker.sock
       - LOCALSTACK_HOST=localhost:4566
       # Disable CORS checks to allow requests from VS Code webviews
